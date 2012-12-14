@@ -1,0 +1,12 @@
+%h1 Destination Matrix Controller
+
+= form_tag('http://maps.googleapis.com/maps/api/distancematrix/json',:method => :get)
+= label_tag 'Origin:'
+= text_field_tag "origins", "Enter origin here"
+= label_tag "Destination:"
+= text_field_tag "destinations", "Enter destination here"
+= hidden_field_tag "sensor","false"
+= hidden_field_tag "mode","driving"
+= hidden_field_tag "language","de"
+= submit_tag
+

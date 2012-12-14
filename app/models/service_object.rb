@@ -1,0 +1,3 @@
+class ServiceObject
+  attr_accessor :url, :params, :httpMethod
+end

@@ -1,0 +1,9 @@
+require 'spec_helper'
+
+describe DestinationMatrix do
+  it "should get the dummy service object" do
+    so = DestinationMatrix.get_service_object
+    so.url.should=="http://maps.googleapis.com/maps/api/distancematrix/json"
+    so.httpMethod.should==:get
+  end
+end

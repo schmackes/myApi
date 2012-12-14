@@ -17,10 +17,10 @@
     = link_to "Home",root_path
    %div{:data => {:role=>"content"}}
     = yield
-   %div{ :data => {:role => "footer"} }
+   %div{ :data => {:role => "footer", :position=>"fixed"} }
     %div{ :data => {:role=>"navbar"}}
      %ul
       %li
-       = link_to "Quickies", quickies_path, :data=> {:icon=>"star"}
+       = link_to "Quicky", quicky_index_path, :data=> {:icon=>"star"}
       %li
        = link_to "Config", '#', :data=> {:icon=>"grid"}

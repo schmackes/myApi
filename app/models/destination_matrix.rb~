@@ -1,0 +1,2 @@
+class DestinationMatrix < ActiveRecord::Base
+end
