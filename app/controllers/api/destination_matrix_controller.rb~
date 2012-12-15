@@ -1,5 +1,0 @@
-class Api::DestinationMatrixController < ApplicationController
-  def index
-  end
-
-end
