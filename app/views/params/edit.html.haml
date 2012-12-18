@@ -1,0 +1,10 @@
+%h1 Edit Param
+
+= form_tag service_param_path(@service), :method=>:put do
+ = label :param, :name, 'Param', :for=>'param_param'
+ = text_field :param, 'name', :placeholder=>'Param name'
+
+ = label :param, :value, 'Value', :for=>'param_value'
+ = text_field :param, 'value', :placeholder=>'Param value'
+ 
+ = submit_tag 'Update Param'

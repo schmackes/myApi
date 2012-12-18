@@ -11,18 +11,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121218084835) do
-
-  create_table "destination_matrices", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20121218201508) do
 
   create_table "params", :force => true do |t|
-    t.string   "param"
+    t.string   "name"
     t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "service_id"
   end
 
   create_table "services", :force => true do |t|
@@ -33,16 +29,9 @@ ActiveRecord::Schema.define(:version => 20121218084835) do
     t.datetime "updated_at"
   end
 
-  create_table "services_users", :force => true do |t|
+  create_table "services_users", :id => false, :force => true do |t|
     t.integer  "services_id"
     t.integer  "users_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "services_users_params", :force => true do |t|
-    t.integer  "services_users_id"
-    t.integer  "params_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

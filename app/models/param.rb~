@@ -1,0 +1,4 @@
+class Param < ActiveRecord::Base
+ has_many :services, :through=>:services_params
+
+end

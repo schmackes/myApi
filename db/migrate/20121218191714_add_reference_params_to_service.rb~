@@ -1,0 +1,4 @@
+class AddReferenceParamsToService < ActiveRecord::Migration
+  def change
+  end
+end

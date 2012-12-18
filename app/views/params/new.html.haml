@@ -1,0 +1,10 @@
+%h1 New Param
+
+= form_tag service_params_path(@service) do
+ = label :param, :name, 'Name', :for=>'param_name'
+ = text_field :param, 'name', :placeholder=>'Param name'
+
+ = label :param, :value, 'Value', :for=>'param_value'
+ = text_field :param, 'value', :placeholder=>'Param value'
+ 
+ = submit_tag 'Create Param'

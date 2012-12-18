@@ -1,0 +1,11 @@
+%h1 Params Overview
+
+%ul{:data=>{:role=>"listview"}}
+ -@params.each do |param|
+  %li
+   %a{:href=>edit_service_param_path(@service, param.id)}= param.name
+
+
+%br
+%a{:data=>{:role=>"button"},:href=>new_service_param_path(@service)}
+ New Param
