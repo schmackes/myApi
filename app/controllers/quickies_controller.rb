@@ -1,4 +1,4 @@
-class QuickyController < ApplicationController
+class QuickiesController < ApplicationController
   require 'httparty'
 
   def index
@@ -19,7 +19,5 @@ class QuickyController < ApplicationController
 #    parsed_json = ActiveSupport::JSON.decode(response.inspect)
     @result=response.to_s
     puts @result
-
-    redirect_to quicky_index
   end
 end
