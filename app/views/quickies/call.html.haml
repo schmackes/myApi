@@ -6,4 +6,7 @@
 
 %p Result: 
 %p
- #{@result}
+ - @result_hash.each do |key, value|
+  = key.to_s + "->" + value.to_s
+  %br
+

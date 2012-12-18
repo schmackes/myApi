@@ -12,12 +12,11 @@ class QuickiesController < ApplicationController
    #runs the service
   def call
     @service = Service.find(params[:id])
-    url_to_call = @service.url
+    url_to_call = @service.url #to be enhanced with parameters...
+    #jsonResponse = Helper.doHttpCall(url_to_call, :get)
+
     response = HTTParty.get(url_to_call)
 
-#    parsed_json=JSON.parse(response.inspect.gsub('\"', '"'))
-#    parsed_json = ActiveSupport::JSON.decode(response.inspect)
-    @result=response.to_s
-    puts @result
+    @result_hash=response.parsed_response
   end
 end
