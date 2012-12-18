@@ -1,6 +1,9 @@
 %h1 Quicky Overview
-%a{:data=>{:role=>"button"},:href=>"quicky/call"}
- Destination
+
+-@quickies.each do |quicky|
+ %a{:data=>{:role=>"button"},:href=>"quicky/"+quicky.id.to_s+"/call"}
+  =quicky.name
+
 %p Result: 
 %p
  #{@result}

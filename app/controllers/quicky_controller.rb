@@ -1,17 +1,25 @@
 class QuickyController < ApplicationController
   require 'httparty'
 
+  def index
+    @quickies=Service.all
+  end
+
+
   def show
   end
 
    #runs the service
   def call
-    full_url = ServiceObject.get_url_by_id(params[:id])
-    response = HTTParty.get(full_url)
+    @service = Service.find(params[:id])
+    url_to_call = @service.url
+    response = HTTParty.get(url_to_call)
 
 #    parsed_json=JSON.parse(response.inspect.gsub('\"', '"'))
 #    parsed_json = ActiveSupport::JSON.decode(response.inspect)
     @result=response.to_s
     puts @result
+
+    redirect_to quicky_index
   end
 end

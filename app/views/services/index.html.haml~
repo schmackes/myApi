@@ -1,0 +1,4 @@
+%h1 Services Overview
+
+%a{:data=>{:role=>"button"},:href=>new_service_path}
+ New Service

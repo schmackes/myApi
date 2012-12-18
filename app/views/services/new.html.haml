@@ -1,0 +1,14 @@
+%h1 New Service
+
+= form_tag services_path do
+
+  = label :service, :name, 'Name', :for=>'service_name'
+  = text_field :service, 'name', :placeholder=>'My cool service'
+
+  = label :service, :description, 'Description',:for=>'service_description'
+  = text_field :service, 'description', :placeholder=>'Service to calculate distance to home'
+
+  = label :service, 'Base URL',:for=>'service_url'
+  = url_field :service, 'url', :placeholder=>'http://example.com/v1/json'
+
+  = submit_tag 'Create Service'
