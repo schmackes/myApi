@@ -50,12 +50,13 @@ MyApi::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
 
-  match 'quicky/call' => 'quicky#call'
+  match 'quicky/:id/call' => 'quicky#call'
   resources :quicky
 
    #Home page
   root :to => 'home#index'
 
+  resources :services
   resources :destination_matrix
 
   # See how all your routes lay out with "rake routes"
