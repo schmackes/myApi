@@ -2,11 +2,13 @@ require 'spec_helper'
 
 describe Service do
   it "should return a valid url in case of no params" do
-    param1=Param.new(:name=>"searchFor", :value"markus")
+    param1=Param.new(:name=>"searchFor", :value=>"markus")
     service=Service.new(:name=>"dummyURL", :description=>"a dummy url", :url=>"http://www.dummy.de/search")
     service.params << param1
     param1.save
     service.save
+
+    puts "final url:"+service.get_full_url
   end
 
   it "should return a valid url in case of params" do
