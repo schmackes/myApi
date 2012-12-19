@@ -1,0 +1,17 @@
+require 'spec_helper'
+
+describe Service do
+  it "should return a valid url in case of no params" do
+    param1=Param.new(:name=>"searchFor", :value"markus")
+    service=Service.new(:name=>"dummyURL", :description=>"a dummy url", :url=>"http://www.dummy.de/search")
+    service.params << param1
+    param1.save
+    service.save
+  end
+
+  it "should return a valid url in case of params" do
+  end
+
+  it "should return a valid url in case of params with special signs (e.g. space)" do
+  end
+end
