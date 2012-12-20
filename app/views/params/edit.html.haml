@@ -6,5 +6,8 @@
 
  = label :param, :value, 'Value', :for=>'param_value'
  = text_field :param, 'value', :placeholder=>'Param value'
- 
+
+ = label :param, :param_type, 'Type (input,output)', :for=>'param_param_type'
+ = text_field :param, 'param_type', :placeholder=>'input'
+
  = submit_tag 'Update Param'

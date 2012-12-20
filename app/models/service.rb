@@ -3,13 +3,14 @@ class Service < ActiveRecord::Base
  has_and_belongs_to_many :users
  has_many :params
 
+
   def get_full_url
     full_url=self.url
 
     if self.params.size>0
       full_url+="?"
 
-      self.params.each do |param|
+      self.input_params.each do |param|
         full_url+=encode(param.name)+"="+encode(param.value)+"&"
       end
       full_url=full_url[0..-2] #remove last &
@@ -17,6 +18,7 @@ class Service < ActiveRecord::Base
 
     return full_url
   end
+
 
 
 #
@@ -46,5 +48,24 @@ class Service < ActiveRecord::Base
 #
   def encode(string)
     URI.escape(string)
+  end
+
+  def input_params
+    self.params.input_param
+  end
+
+  def output_params
+    self.params.output_param
+  end
+
+  def get_key_value_output_params
+    key_value_hash=Hash.new
+
+    output_params.each do |param|
+      key_value_hash[param.name]=param.value
+#      puts "kv:"+param.name+"->"+param.value
+    end
+
+    return key_value_hash
   end
 end

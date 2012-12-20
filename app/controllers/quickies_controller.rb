@@ -23,8 +23,8 @@ class QuickiesController < ApplicationController
     # make http call (currently only get)
     response = HTTParty.get(url_to_call)
 
-    # @result_hash=Helper.extract_from_json(@service.get_output_params.values, response)
+    @result_hash=Helper.extract_from_json(@service.get_key_value_output_params, response.parsed_response)
 
-    @result_hash=response.parsed_response
+    # @result_hash=response.parsed_response
   end
 end

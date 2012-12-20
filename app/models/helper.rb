@@ -15,7 +15,7 @@ class Helper
     result_hash=Hash.new
 
     param_hash.each do |key,address_string|
-      json_copy=JSON.parse(json)
+      json_copy=json#JSON.parse(json.to_s)
       split_array=address_string.split
       address_array=convert_string_numbers_to_real_numbers(split_array)
 

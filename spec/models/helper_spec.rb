@@ -40,6 +40,7 @@ describe Helper do
    "status" : "OK"
     }'
 
+    json_hash=eval(json)
     param_hash=Hash["distance"=>"rows 0 elements 0 distance text",
                         "duration"=>"rows 0 elements 0 duration text"]
 
@@ -49,7 +50,7 @@ describe Helper do
     expected_hash=Hash["distance"=>expected_distance, "duration"=>expected_duration]
 
     # run & check
-    resulting_hash=Helper.extract_from_json(param_hash,json)
+    resulting_hash=Helper.extract_from_json(param_hash,json_hash)
 
     resulting_hash.should have_key("distance")
     resulting_hash.should have_key("duration")
