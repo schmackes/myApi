@@ -41,6 +41,7 @@ group :development, :test do
   gem 'launchy'
   gem 'simplecov'
   gem 'minitest'
+  gem "seed_dump", "~> 0.4.2"
 end
 
 group :production do
