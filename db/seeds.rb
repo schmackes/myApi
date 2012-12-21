@@ -3,27 +3,20 @@
 # Do not hesitate to tweak this to your needs
 
 Param.create([
-  { :name => "origins", :value => "hauptstrasse 10", :created_at => "2012-12-18 19:53:29", :updated_at => "2012-12-20 17:25:03", :service_id => 2, :param_type => "input" },
-  { :name => "destinations", :value => "Berlin", :created_at => "2012-12-18 20:07:02", :updated_at => "2012-12-20 09:10:42", :service_id => 2, :param_type => "input" },
-  { :name => "sensor", :value => "false", :created_at => "2012-12-18 20:21:54", :updated_at => "2012-12-20 09:10:48", :service_id => 2, :param_type => "input" },
-  { :name => "mode", :value => "driving", :created_at => "2012-12-18 20:22:02", :updated_at => "2012-12-20 09:10:53", :service_id => 2, :param_type => "input" },
-  { :name => "language", :value => "de", :created_at => "2012-12-18 20:22:13", :updated_at => "2012-12-20 09:10:58", :service_id => 2, :param_type => "input" },
-  { :name => "searchFor", :value => "markus", :created_at => "2012-12-19 09:33:45", :updated_at => "2012-12-19 09:33:46", :service_id => 3, :param_type => nil },
-  { :name => "filter", :value => "true", :created_at => "2012-12-19 21:18:58", :updated_at => "2012-12-19 21:18:58", :service_id => 3, :param_type => nil },
-  { :name => "From", :value => "origin_addresses 0", :created_at => "2012-12-20 08:58:49", :updated_at => "2012-12-20 09:09:54", :service_id => 2, :param_type => "output" },
-  { :name => "To", :value => "destination_addresses 0", :created_at => "2012-12-20 08:59:15", :updated_at => "2012-12-20 09:10:07", :service_id => 2, :param_type => "output" },
-  { :name => "Distance", :value => "rows 0 elements 0 distance text", :created_at => "2012-12-20 17:27:56", :updated_at => "2012-12-20 17:27:56", :service_id => 2, :param_type => "output" },
-  { :name => "Duration", :value => "rows 0 elements 0 duration text", :created_at => "2012-12-20 17:28:15", :updated_at => "2012-12-20 17:28:15", :service_id => 2, :param_type => "output" }
+  { :name => "origins", :value => "Zurich", :created_at => "2012-12-18 19:53:29", :updated_at => "2012-12-20 17:25:03", :service_id => 1, :param_type => "input" },
+  { :name => "destinations", :value => "Berlin", :created_at => "2012-12-18 20:07:02", :updated_at => "2012-12-20 09:10:42", :service_id => 1, :param_type => "input" },
+  { :name => "sensor", :value => "false", :created_at => "2012-12-18 20:21:54", :updated_at => "2012-12-20 09:10:48", :service_id => 1, :param_type => "input" },
+  { :name => "mode", :value => "driving", :created_at => "2012-12-18 20:22:02", :updated_at => "2012-12-20 09:10:53", :service_id => 1, :param_type => "input" },
+  { :name => "language", :value => "de", :created_at => "2012-12-18 20:22:13", :updated_at => "2012-12-20 09:10:58", :service_id => 1, :param_type => "input" },
+  { :name => "From", :value => "origin_addresses 0", :created_at => "2012-12-20 08:58:49", :updated_at => "2012-12-20 09:09:54", :service_id => 1, :param_type => "output" },
+  { :name => "To", :value => "destination_addresses 0", :created_at => "2012-12-20 08:59:15", :updated_at => "2012-12-20 09:10:07", :service_id => 1, :param_type => "output" },
+  { :name => "Distance", :value => "rows 0 elements 0 distance text", :created_at => "2012-12-20 17:27:56", :updated_at => "2012-12-20 17:27:56", :service_id => 1, :param_type => "output" },
+  { :name => "Duration", :value => "rows 0 elements 0 duration text", :created_at => "2012-12-20 17:28:15", :updated_at => "2012-12-20 17:28:15", :service_id => 1, :param_type => "output" }
 ], :without_protection => true )
-
 
 
 Service.create([
-  { :name => "Distance ZH -> Berlin", :description => "Distance ZH to Berlin by car", :url => "http://maps.googleapis.com/maps/api/distancematrix/json", :created_at => "2012-12-18 11:00:53", :updated_at => "2012-12-18 22:13:51" },
-  { :name => "dummyURL", :description => "a dummy url", :url => "http://www.dummy.de/search", :created_at => "2012-12-19 09:33:46", :updated_at => "2012-12-19 09:33:46" }
-], :without_protection => true )
-
-
+                { :name => "Distance ZH -> Berlin", :description => "Distance ZH to Berlin by car", :url => "http://maps.googleapis.com/maps/api/distancematrix/json", :created_at => "2012-12-18 11:00:53", :updated_at => "2012-12-18 22:13:51" }], :without_protection=>true)
 
 User.create([
   { :firstname => nil, :lastname => nil, :login => nil, :pwd => nil, :created_at => nil, :updated_at => nil }

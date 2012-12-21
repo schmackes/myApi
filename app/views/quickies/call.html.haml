@@ -5,8 +5,11 @@
 -#  =quicky.name
 
 %p Result: 
-%p
+%table
+ %tbody
  - @result_hash.each do |key, value|
-  = key.to_s + "->" + value.to_s
-  %br
+  %tr
+   %th= key.to_s 
+   %td= value.to_s
+  
 
