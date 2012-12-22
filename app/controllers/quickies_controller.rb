@@ -3,6 +3,15 @@ class QuickiesController < ApplicationController
 
   def index
     @quickies=Service.all
+
+    # get information for dynamic fields (e.g. java script, getLocation) for all services
+    @dynamic_fields_hash=Hash.new
+
+    @quickies.each do |service|
+      @dynamic_fields_hash[service.id]=service.get_key_value_params(service.dynamic_params)
+    end
+
+    puts "dyn fields:"+ @dynamic_fields_hash.to_s
   end
 
 
@@ -12,19 +21,14 @@ class QuickiesController < ApplicationController
    #runs the service
   def call
     @service = Service.find(params[:id])
-    url_to_call = @service.get_full_url  #to be enhanced with parameters...
-    #jsonResponse = Helper.doHttpCall(url_to_call, :get)
+
+    # construct URL and make http call (currently only get)
+    url_to_call = @service.get_full_url(params)  #to be enhanced with parameters...
     puts "URL to call:"+url_to_call
-    #overwrite with additional parameters from current request
-    #url_to_call+="&"
-    #url_to_call+=params[:myParams]
-
-
-    # make http call (currently only get)
     response = HTTParty.get(url_to_call)
 
-    @result_hash=Helper.extract_from_json(@service.get_key_value_output_params, response.parsed_response)
-
-    # @result_hash=response.parsed_response
+    # result for view
+    @result_hash=Helper.extract_from_json(@service.get_key_value_params(@service.output_params),
+                                          response.parsed_response)
   end
 end

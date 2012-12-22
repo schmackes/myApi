@@ -3,8 +3,8 @@ class Service < ActiveRecord::Base
  has_and_belongs_to_many :users
  has_many :params
 
-
-  def get_full_url
+  #returns full service URL including input parameters
+  def get_full_url(req_params)
     full_url=self.url
 
     if self.input_params.size>0
@@ -12,7 +12,13 @@ class Service < ActiveRecord::Base
 
       self.input_params.each do |param|
         #puts "name:"+param.name+"->value:"+param.value
-        full_url+=encode(param.name)+"="+encode(param.value)+"&"
+        if req_params.has_key? param.name #this was a dynamic param -> overwrite
+          value=req_params[param.name]
+        else
+          value=param.value
+        end
+
+        full_url+=encode(param.name)+"="+encode(value)+"&"
       end
       full_url=full_url[0..-2] #remove last &
     end
@@ -20,53 +26,38 @@ class Service < ActiveRecord::Base
     return full_url
   end
 
-
-
-#
-#
-#  query_string=""
-#
-#
-#  if self.params.size>0
-#
-#
-#    #use only name,value of param; encode special signs
-#    key_value_params = Hash[self.params.map{|p| [encode(p.name), encode(p.value)]}]
-#
-#    #generate query string (e.g. searchFor=markus&filter=true)
-#    #query_string=key_value_params.to_query
-#    #URI.encode_www_form(key_value_params)
-#    #puts query_string
-#
-#  else
-#
-#  end
-#
-#  #join with url (e.g. http://www.example.com/search
-#  full_url=self.urlquery_string)
-#
-#end
-#
-  def encode(string)
-    URI.escape(string)
+  # returns the dynamic (input) params of the service
+  def dynamic_params
+    self.params.dynamic_param
   end
 
+  # returns the input params of the service
   def input_params
     self.params.input_param
   end
 
+  # returns the output params of the service
   def output_params
     self.params.output_param
   end
 
-  def get_key_value_output_params
+  # returns a hash of param_name -> param_value (e.g. for quickies call view)
+  def get_key_value_params(params)
     key_value_hash=Hash.new
 
-    output_params.each do |param|
+    params.each do |param|
       key_value_hash[param.name]=param.value
 #      puts "kv:"+param.name+"->"+param.value
     end
 
     return key_value_hash
   end
+
+  private
+
+  # encodes the string for a URL
+  def encode(string)
+    URI.escape(string)
+  end
+
 end
