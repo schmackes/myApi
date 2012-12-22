@@ -64,7 +64,8 @@ MyApi::Application.routes.draw do
     resources :params
   end
 
-  resources :destination_matrix
+  #resources :destination_matrix
+  resources :mailers
 
   # See how all your routes lay out with "rake routes"
 

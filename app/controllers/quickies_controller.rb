@@ -14,11 +14,11 @@ class QuickiesController < ApplicationController
     @service = Service.find(params[:id])
     url_to_call = @service.get_full_url  #to be enhanced with parameters...
     #jsonResponse = Helper.doHttpCall(url_to_call, :get)
-    puts url_to_call
+    puts "URL to call:"+url_to_call
     #overwrite with additional parameters from current request
     #url_to_call+="&"
     #url_to_call+=params[:myParams]
-    puts "debug:" + url_to_call.to_s
+
 
     # make http call (currently only get)
     response = HTTParty.get(url_to_call)

@@ -1,0 +1,2 @@
+class MailBean < ActiveRecord::Base
+end

@@ -7,10 +7,11 @@ class Service < ActiveRecord::Base
   def get_full_url
     full_url=self.url
 
-    if self.params.size>0
+    if self.input_params.size>0
       full_url+="?"
 
       self.input_params.each do |param|
+        #puts "name:"+param.name+"->value:"+param.value
         full_url+=encode(param.name)+"="+encode(param.value)+"&"
       end
       full_url=full_url[0..-2] #remove last &

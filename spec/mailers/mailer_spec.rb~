@@ -1,0 +1,20 @@
+require "spec_helper"
+
+describe MyMailer do
+  it "should send out a regular mail" do
+
+    mail_data=MailBean.new
+    mail_data.to="mr.markus.kaiser@gmail.com"
+    mail_data.subject="test mail"
+    mail_data.body="this is a short text"
+    email = MyMailer.send_mail(mail_data).deliver
+
+    #assert !ActionMailer::Base.deliveries.empty?
+
+    # Test the body of the sent email contains what we expect it to
+    #assert_equal [user.email], email.to
+    #assert_equal "Welcome to My Awesome Site", email.subject
+    #assert_match(/<h1>Welcome to example.com, #{user.name}<\/h1>/, email.encoded)
+    #assert_match(/Welcome to example.com, #{user.name}/, email.encoded)
+  end
+end
