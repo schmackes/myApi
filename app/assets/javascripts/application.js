@@ -8,19 +8,19 @@
 //= require jquery_ujs
 //= require_tree .
 function getLocation(){
-    alert("entering");
+
     if (navigator.geolocation)
     {
 	navigator.geolocation.getCurrentPosition(showPosition);
     }
     else{
 	//alert("Geoloaction not supported by this browser.");
-	$('#myParams').val="Geolocation is not supported by this browser.";
+	$('.getLocationReceiver').val="Geolocation is not supported by this browser.";
     }
 }
 function showPosition(position)
 {
     //alert(position.coords.latitude +"," + position.coords.longitude)
-    $('#myParams').val(position.coords.latitude +"," + position.coords.longitude)
+    $('.getLocationReceiver').val(position.coords.latitude +"," + position.coords.longitude)
     
 }

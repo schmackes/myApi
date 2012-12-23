@@ -53,6 +53,21 @@ class Service < ActiveRecord::Base
     return key_value_hash
   end
 
+  # Helper function for dynamic params in quickies index view
+  # REFACTOR for better solution
+  def submit_hash
+    hash=Hash.new
+
+    hash[:id]="test"+self.id.to_s
+
+    # this should add classes to be used by Javascript to the submit buttons
+    # e.g. <input type="button" ...=submit ... geoLocation="true">
+    self.dynamic_params.each do |param|
+      hash[param.value]="true"
+    end
+    return hash
+  end
+
   private
 
   # encodes the string for a URL

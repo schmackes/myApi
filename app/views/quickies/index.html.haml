@@ -3,11 +3,11 @@
 - @quickies.each do |quicky|
  =form_tag call_quicky_path(quicky.id.to_s) do
   - @dynamic_fields_hash[quicky.id].each do |key, value|
-   =text_field_tag key
-  =submit_tag quicky.name, :id=>"id"+quicky.id.to_s, :class=>".getLocation"
+   =text_field_tag key,'', :class=>value+"Receiver"
+  =submit_tag quicky.name, quicky.submit_hash
 
 :javascript
- $(".getlocation").click(function(){
+ $("input[getLocation='true']").click(function(){
   getLocation();
   return true;
  });

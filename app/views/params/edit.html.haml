@@ -7,7 +7,18 @@
  = label :param, :value, 'Value', :for=>'param_value'
  = text_field :param, 'value', :placeholder=>'Param value'
 
- = label :param, :param_type, 'Type (input,output)', :for=>'param_param_type'
- = text_field :param, 'param_type', :placeholder=>'input'
+ %fieldset{:data=>{:role=>"controlgroup", :mini=>"true"}}
+  %legend Input/Output Parameter
+  = radio_button(:param, "io_flag", "input")
+  = label :param, "input", :for=>'param_io_flag_input'
+  = radio_button(:param, "io_flag", "output")
+  = label :param, "output", :for=>'param_io_flag_output'
+
+ %fieldset{:data=>{:role=>"controlgroup", :mini=>"true"}}
+  %legend Dynamic/Static parameter
+  = radio_button(:param, "ds_flag", "dynamic")
+  = label :param, "dynamic", :for=>'param_ds_flag_dynamic'
+  = radio_button(:param, "ds_flag", "static")
+  = label :param, "static", :for=>'param_ds_flag_static'
 
  = submit_tag 'Update Param'

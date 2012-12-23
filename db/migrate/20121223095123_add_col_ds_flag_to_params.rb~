@@ -1,0 +1,4 @@
+class AddColDsFlagToParams < ActiveRecord::Migration
+  def change
+  end
+end

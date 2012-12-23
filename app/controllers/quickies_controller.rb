@@ -31,4 +31,6 @@ class QuickiesController < ApplicationController
     @result_hash=Helper.extract_from_json(@service.get_key_value_params(@service.output_params),
                                           response.parsed_response)
   end
+
+
 end

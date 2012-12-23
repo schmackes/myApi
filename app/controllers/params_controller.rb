@@ -40,4 +40,13 @@ class ParamsController < ApplicationController
   def destroy
   end
 
+#  def get_io_flags
+#    Param.get_io_flags
+#  end
+#
+#  def get_ds_flags
+#    Param.get_ds_flags
+#  end
+#
+
 end
