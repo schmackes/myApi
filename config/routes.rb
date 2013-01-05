@@ -60,8 +60,11 @@ MyApi::Application.routes.draw do
    #Home page
   root :to => 'home#index'
 
-  resources :services do
-    resources :params
+
+  resources :servicePipelines do
+    resources :services do
+      resources :params
+    end
   end
 
   #resources :destination_matrix

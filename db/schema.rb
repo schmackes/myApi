@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121223095123) do
+ActiveRecord::Schema.define(:version => 20121227102149) do
 
   create_table "helpers", :force => true do |t|
     t.datetime "created_at"
@@ -26,6 +26,16 @@ ActiveRecord::Schema.define(:version => 20121223095123) do
     t.integer  "service_id"
     t.string   "io_flag"
     t.string   "ds_flag"
+  end
+
+  create_table "pipelineorders", :force => true do |t|
+    t.integer "services_id"
+    t.integer "servicepipelines_id"
+    t.integer "order"
+  end
+
+  create_table "service_pipelines", :force => true do |t|
+    t.string "name", :null => false
   end
 
   create_table "services", :force => true do |t|

@@ -1,0 +1,10 @@
+%h1 Edit Pipeline
+
+= form_tag servicePipeline_path(@pipeline), :method=>:put do
+
+  = label :servicePipeline, :name, 'Name', :for=>'servicePipeline_name'
+  = text_field :servicePipeline, 'name'
+
+  = submit_tag 'Update Pipeline'
+
+= link_to 'Services', servicePipeline_services_path(@pipeline), {:data=>{:role=>"button"}}

@@ -1,6 +1,7 @@
 class ServicesController < ApplicationController
   def index
-    @services=Service.all
+    @pipeline=Pipeline.find(params[:servicePipeline_id])
+    @services=@pipeline.services
   end
 
   def new

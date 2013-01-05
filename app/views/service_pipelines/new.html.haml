@@ -1,0 +1,8 @@
+%h1 New Service Pipeline
+
+= form_tag servicePipelines_path do
+
+  = label :pipeline, :name, 'Name', :for=>'pipeline_name'
+  = text_field :pipeline, 'name', :placeholder=>'My cool pipeline'
+
+  = submit_tag 'Create Pipeline'

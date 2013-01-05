@@ -1,0 +1,11 @@
+%h1 Service Pipelines Overview
+
+%ul{:data=>{:role=>"listview"}}
+ -@pipelines.each do |pipeline|
+  %li
+   %a{:href=>edit_servicePipelines_path(pipeline.id)}= pipeline.name 
+
+
+%br
+%a{:data=>{:role=>"button"},:data=>{:role=>"button"},:href=>new_servicePipeline_path}
+ New Pipeline
